@@ -34,7 +34,10 @@
   
   #main {
     transition: margin-left .5s;
-    padding: 16px;
+    .app-header{
+      padding: 16px;
+      background-color: lightgray;
+    }
   }
   
   @media screen and (max-height: 450px) {
@@ -51,3 +54,4 @@
       margin-left: 250px;
     }
   }
+

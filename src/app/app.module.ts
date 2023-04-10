@@ -9,7 +9,8 @@ import { SideNavigationComponent } from './side-navigation/side-navigation.compo
 
 @NgModule({
   declarations: [
-    AppComponent,SideNavigationComponent
+    AppComponent,
+    SideNavigationComponent
   ],
   imports: [
     BrowserModule,

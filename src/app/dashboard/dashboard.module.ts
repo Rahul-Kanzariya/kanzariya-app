@@ -8,7 +8,7 @@ const dashboardRoutes = [
     path : '',
     children : [
       {
-        path :'',
+        path :'dashboard',
         component : DashboardComponent,
       }
     ]

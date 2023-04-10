@@ -1,15 +1,13 @@
 <div [ngClass]="isOpenSideBar ? 'open-sidebar' : ''">
   <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+      <a routerLink="/dashboard" >Dashboard</a>
     </div>
     
     <div id="main">
-      <!-- <p>Click on the element below to open the side navigation menu, and push this content to the right.</p> -->
-      <span style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776; open</span>
+      <div class="app-header">
+        <span class="menu-toggle" style="font-size:30px;cursor:pointer" (click)="openNav()">&#9776;</span>
+      </div>
+      <router-outlet></router-outlet>
     </div>
-    <!-- <router-outlet></router-outlet> -->
 </div>
