@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
 import { AppRoutes } from './app.routes';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent,SideNavigationComponent
   ],
   imports: [
     BrowserModule,

@@ -3,13 +3,25 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
+const dashboardRoutes = [
+  {
+    path : '',
+    children : [
+      {
+        path :'',
+        component : DashboardComponent,
+      }
+    ]
+  }
+]
+
 @NgModule({
   declarations: [
     DashboardComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forChild([{path:"",component:DashboardComponent}])
+    RouterModule.forChild(dashboardRoutes)
   ],
   providers: [],
 })
