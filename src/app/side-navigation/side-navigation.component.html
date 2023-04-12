@@ -1,11 +1,9 @@
 <div [ngClass]="isOpenSideBar ? 'open-sidebar' : ''">
   <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
-      <ul>
         <li *ngFor="let menu of menuList" >
-          <a routerLink="menu.route" (click)="handleMenu(menu.title)" [ngClass]="selectedMenu == menu.title ? 'active' : ''" >{{menu.title}}</a>
+          <a (click)="handleMenu(menu.title)"  routerLink={{menu.route}} [ngClass]="selectedMenu == menu.title ? 'active' : ''" >{{menu.title}}</a>
         </li>
-      </ul>
     </div>
     
     <div id="main">

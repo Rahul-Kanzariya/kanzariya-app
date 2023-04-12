@@ -18,12 +18,9 @@
     color: #f1f1f1;
     display: block;
     transition: 0.3s;
-    .active{
-      background-color: #5b5b63;
-    }
   }
   
-  .sidenav a:hover {
+  .sidenav li a:hover {
     background-color: #5b5b63;
   }
   
@@ -56,4 +53,10 @@
     #main {
       margin-left: 250px;
     }
+    .sidenav ul{
+      padding: 0;
+    }
+    .sidenav a.active{
+      background-color: #5b5b63;
+    }  
   }
