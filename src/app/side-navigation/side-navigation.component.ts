@@ -6,7 +6,13 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./side-navigation.component.scss']
 })
 export class SideNavigationComponent implements OnInit {
-  isOpenSideBar :boolean = true
+  isOpenSideBar :boolean = true;
+  selectedMenu : any;
+  menuList = [
+    {title : "Dashboard", route : '/dashboard'},
+    // {title : "About Me", route : '/"aboutMe"'}
+    
+  ];
   constructor() { }
 
   ngOnInit(): void {
@@ -18,5 +24,10 @@ export class SideNavigationComponent implements OnInit {
   
   closeNav() {
     this.isOpenSideBar = !this.isOpenSideBar;
+  }
+
+  handleMenu(menu:any){
+    console.log('menu: handleMenu >>> ', menu);
+    this.selectedMenu = menu;
   }
 }
