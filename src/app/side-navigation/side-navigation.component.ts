@@ -10,7 +10,7 @@ export class SideNavigationComponent implements OnInit {
   selectedMenu : any;
   menuList = [
     {title : "Dashboard", route : '/dashboard'},
-    // {title : "About Me", route : '/"aboutMe"'}
+    {title : "About Me", route : '/about-me'}
     
   ];
   constructor() { }
