@@ -29,15 +29,10 @@
     list-style: none;
 }
 
-body {
-    &.menu-open{
-        #body-overlay {
-            display: block;
-        }
-    }
-    &.menu-open {
-        .app-menu {
-            left: 0;
-        }
-    }
+body.menu-open #body-overlay {
+    display: block;
+}
+
+body.menu-open .app-menu {
+    left: 0;
 }
