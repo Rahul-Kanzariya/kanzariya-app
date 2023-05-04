@@ -2,42 +2,35 @@ export default class EmployeeCard extends HTMLElement {
     template;
     constructor() {
       super();
-      this.createTemplate();
+      this.setHtml();
+    }
+    
+    createTemplate(pageHtml,pageCSS){
+        this.template = document.createElement('template');
+        this.template.innerHTML = `
+        <style>${pageCSS}</style>
+        ${pageHtml}
+        `
+    }
+
+  async setHtml() {
+    const pageHtml = await this.getFileText("kanzariya-app/emplyee-card/employee-card.html");
+    const pageCSS = await this.getFileText("kanzariya-app/emplyee-card/employee-card.css");
+    if(pageHtml && pageHtml.length && pageCSS && pageCSS.length){
+      this.createTemplate(pageHtml,pageCSS);
       this.attachShadow({ mode: 'open'});
       this.shadowRoot.appendChild(this.template.content.cloneNode(true));
       this.shadowRoot.querySelector('h3').innerText = this.getAttribute('name');
     }
-    
-    createTemplate(){
-        this.template = document.createElement('template');
-        this.template.innerHTML = `
-        <style>
-        <style>
-          .employee-card {
-            font-family: sans-serif;
-            background: #f4f6f7;
-            width: 250px;
-            display: grid;
-            grid-template-columns: 1fr;
-            margin-bottom: 10px;
-          }
-        
-        </style>
-        <div class="employee-card">
-          <img/>
-          <div>
-            <h3 class="card-name"></h3>
-            <div class="details">
-              <p><slot name="id"/></p>
-              <p><slot name="job title"/></p>
-              <p><slot name="email"/></p>
-              <p><slot name="phone"/></p>
-            </div>
-          </div>
-        </div>
-        `
 
-    }
+  }
+
+  async getFileText(fileUrl) {
+    // console.log('getFileText: ');
+    const text = await (await fetch(fileUrl)).text();
+    // console.log('text: getFileText >>> ', text);
+    return text;
+  }
 
     connectedCallback(){
         this.h3 = this.getAttribute("name");
