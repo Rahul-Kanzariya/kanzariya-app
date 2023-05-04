@@ -23,6 +23,8 @@ function removeClass(ele, cls) {
 //The actual fuction
 function toggleMenu() {
     var ele = document.getElementsByTagName('body')[0];
+    var cardNameEle = document.getElementsByClassName('card-name')[0];
+    cardNameEle.innerHTML = "open menu clicked bro"
     if (!hasClass(ele, "menu-open")) {
         addClass(ele, "menu-open");
     } else {

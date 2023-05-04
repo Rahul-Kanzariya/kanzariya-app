@@ -26,7 +26,7 @@ export default class EmployeeCard extends HTMLElement {
         <div class="employee-card">
           <img/>
           <div>
-            <h3></h3>
+            <h3 class="card-name"></h3>
             <div class="details">
               <p><slot name="id"/></p>
               <p><slot name="job title"/></p>
