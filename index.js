@@ -26,8 +26,10 @@ function toggleMenu() {
     var cardNameEle = document.getElementsByClassName('card-name')[0];
     cardNameEle.innerHTML = "open menu clicked bro"
     if (!hasClass(ele, "menu-open")) {
+        console.log("adding menu-open class");
         addClass(ele, "menu-open");
     } else {
+        console.log("removing menu-open class");
         removeClass(ele, "menu-open");
     }
 }
