@@ -1,0 +1,14 @@
+
+.app-header {
+    font-family: sans-serif;
+    background: #f4f6f7;
+    /* width: 250px; */
+    /* display: grid; */
+    grid-template-columns: 1fr;
+    margin-bottom: 10px;
+  }
+
+  .app-header > span{
+    font-size: 30px;
+    cursor: pointer
+  }
