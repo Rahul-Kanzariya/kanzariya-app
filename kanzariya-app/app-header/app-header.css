@@ -6,9 +6,9 @@
     /* display: grid; */
     grid-template-columns: 1fr;
     margin-bottom: 10px;
+    font-size: 30px;
   }
 
-  .app-header > span{
-    font-size: 30px;
+  .app-header .header-icon{
     cursor: pointer
   }
