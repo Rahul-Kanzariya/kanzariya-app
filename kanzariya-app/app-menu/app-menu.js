@@ -10,7 +10,11 @@ export default class AppMenu extends HTMLElement {
     }
   
     async setTemplate() {
-      const template = await getHtml("kanzariya-app/app-menu/app-menu.html");
+      const path ={ 
+        html :"kanzariya-app/app-menu/app-menu.html",
+        css :"kanzariya-app/app-menu/app-menu.css"
+     }
+      const template = await getHtml(path.html,path.css);
       this.innerHTML = template;
     }  
   }
