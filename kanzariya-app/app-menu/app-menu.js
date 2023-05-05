@@ -1,24 +1,18 @@
-export default class AppMenu extends HTMLElement {
-    // get email() {
-    //   return this.hasAttribute('email');
-    // }
-    
+import { getHtml } from "../shared/util.js";
+
+export default class AppMenu extends HTMLElement {    
     constructor() {
       super();
     }
     
-    connectedCallback(){
-    this.innerHTML = `
-        <nav class="app-menu" role="navigation">            
-            <ul>
-                <li><a href="#"></a>Skills</li>
-                <li><a href="#"></a>About Me</li>
-                <li><a href="#">Projects</a></li>   
-                <li><button onclick="toggleMenu()" >close</button></li>   
-            </ul>
-        </nav>`
+    connectedCallback() {
+      this.setTemplate();
     }
-    
+  
+    async setTemplate() {
+      const template = await getHtml("kanzariya-app/app-menu/app-menu.html");
+      this.innerHTML = template;
+    }  
   }
 
   // Register component to window
