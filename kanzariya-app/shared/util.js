@@ -7,7 +7,6 @@ async function getFileText(fileUrl) {
 
 export async function getHtml(htmlPath, cssPath) {
     return new Promise(async(resolve)=>{
-        console.log('getHtml: ');
         let template;
         if(cssPath && htmlPath){
             const pageHtml = await getFileText(htmlPath);

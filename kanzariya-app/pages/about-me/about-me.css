@@ -1,0 +1,40 @@
+.about-me{
+    font-family: 'Open Sans',sans-serif;
+}
+
+.intro-text{
+    color: rgb(138, 14, 241);
+    font-size: 6rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: normal;
+    font-family: Roboto, sans-serif;
+}
+
+.intro-para{
+    font-size: 1.5rem;
+}
+
+.info-container{
+    color: #ffffff;
+    background-color: #db6c54;
+    border-radius: 20px !important;
+    padding: 30px;
+    justify-content: center;
+}
+
+.info-container .info-title{
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-size: 0.875rem;
+    margin: 40px auto 0 0;
+}
+
+.info-container .info-content{
+    font-size: 1.125rem;
+    letter-spacing: 1px;
+    font-weight: 400;
+    font-family: Poppins;
+    line-height: 1;
+    margin: 12px 60px 0 0;
+}

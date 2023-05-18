@@ -12,3 +12,7 @@
   .app-header .header-icon{
     cursor: pointer
   }
+
+  .app-logo a{
+    text-decoration: none;
+  }

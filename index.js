@@ -36,6 +36,3 @@ function toggleMenu() {
 //         init();
 //     }
 // });
-
-
-console.log("in >> index.js");

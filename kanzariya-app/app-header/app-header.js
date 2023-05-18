@@ -15,7 +15,7 @@ export default class AppHeader extends HTMLElement {
         css :"kanzariya-app/app-header/app-header.css"
      }
       const template = await getHtml(path.html,path.css);
-      console.log('template: ', template);
+      // console.log('template: ', template);
       this.innerHTML = template;
     }  
   }
@@ -24,4 +24,4 @@ export default class AppHeader extends HTMLElement {
 window.customElements.define('app-header', AppHeader);
 
 
-  console.log("in >>> app.js");
+  // console.log("in >>> app.js");

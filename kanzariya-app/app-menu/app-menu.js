@@ -23,4 +23,4 @@ export default class AppMenu extends HTMLElement {
 window.customElements.define('app-menu', AppMenu);
 
 
-  console.log("in >>> app.js");
+  // console.log("in >>> app.js");
