@@ -5,8 +5,9 @@ export default class AppMenu extends HTMLElement {
       super();
     }
     
-    connectedCallback() {
-      this.setTemplate();
+    async connectedCallback() {
+      await this.setTemplate();
+      this.updateMenu(window.location.hash);
     }
 
     static observedAttributes = ["page"];
