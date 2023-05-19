@@ -42,6 +42,9 @@ export default class KanzariyaApp extends HTMLElement {
       {
         path:"#projects", component:"<my-projects></my-projects>"
       },
+      {
+        path:"#calculator", component:"<app-calculator></app-calculator>"
+      },
     ];
 
     // Define some routes and callbacks
