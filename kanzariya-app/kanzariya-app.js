@@ -21,7 +21,7 @@ export default class KanzariyaApp extends HTMLElement {
 
   renderRoutePage(pageTag){
     const routeOutlateEle = document.querySelector('kanzariya-app route-outlate');
-    console.log('routeOutlateEle: renderRoutePage', routeOutlateEle);
+    // console.log('routeOutlateEle: renderRoutePage', routeOutlateEle);
     if(routeOutlateEle && pageTag){
       routeOutlateEle.innerHTML = pageTag
     }
@@ -48,6 +48,7 @@ export default class KanzariyaApp extends HTMLElement {
     routes.forEach((route)=>{
       router.get(route.path,()=>{
         console.log('route.path: ', route.path);
+        this.updateSeletedMenu(route);
         // render Route Page template
         this.renderRoutePage(route.component);   
       })
@@ -61,6 +62,13 @@ export default class KanzariyaApp extends HTMLElement {
       console.log("hashchange event listeners log");
       router.init();
     });  
+  }
+
+  updateSeletedMenu(route){
+    const appMenuEle = document.querySelector('app-menu');
+    if(appMenuEle && route){
+      appMenuEle.setAttribute("Page",route.path)
+    }
   }
 }
 

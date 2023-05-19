@@ -20,9 +20,9 @@
     transition: 0.3s;
   }
   
-  .sidenav a:hover {
+  /* .sidenav a:hover {
     color: #f1f1f1;
-  }
+  } */
   
   .sidenav .closebtn {
     position: absolute;
@@ -30,4 +30,18 @@
     right: 25px;
     font-size: 36px;
     margin-left: 50px;
+  }
+
+  .sidenav-menu:hover{
+    /* border: 2px solid white; */
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+  }
+
+  .sidenav-menu.show{
+    /* border: 2px solid white; */
+    border-radius: 10px;
+    color: black;
+    background-color: white;
   }

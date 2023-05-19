@@ -36,3 +36,6 @@ function toggleMenu() {
 //         init();
 //     }
 // });
+
+// Default Page About-Me
+if(!window.location.hash)window.location.hash = "#about-me"

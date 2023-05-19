@@ -27,6 +27,7 @@
 
 .app-menu ul {
     list-style: none;
+    padding: unset;
 }
 
 body.menu-open #body-overlay {
