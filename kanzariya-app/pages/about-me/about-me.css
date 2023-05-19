@@ -105,11 +105,17 @@
         margin-top: 64vh
     }
     .image-container .image-blue{
-        display: none;
-    }   
-    /* .image-container .image-creame-circle{
         width: 334px;
         height: 334px;
-    }     */
+    }   
+    .image-container .image-creame-circle{
+        width: 334px;
+        height: 334px;
+    }    
+    .image-container .image-pic-circle{
+        width: 200px;
+        height: 200px;
+        margin: -250px auto;
+    }    
      
 }
