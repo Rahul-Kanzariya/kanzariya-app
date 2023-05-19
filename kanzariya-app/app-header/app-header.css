@@ -16,5 +16,6 @@
 
   .app-logo a{
     text-decoration: none;
+    color: black;
     font-family: Lobster, open-sans;
   }
