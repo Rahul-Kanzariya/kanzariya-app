@@ -6,13 +6,15 @@
     /* display: grid; */
     grid-template-columns: 1fr;
     margin-bottom: 10px;
-    font-size: 30px;
+    font-size: 50px;
   }
 
   .app-header .header-icon{
-    cursor: pointer
+    cursor: pointer;
+    padding: 10px;
   }
 
   .app-logo a{
     text-decoration: none;
+    font-family: Lobster, open-sans;
   }
