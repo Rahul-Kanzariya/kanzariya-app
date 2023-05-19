@@ -106,8 +106,7 @@
     }
     .image-container{
         /* display: none; */
-        margin-top: 64vh
-        /* margin-top: 50vh */
+        margin-top: 75vh;
     }
     .image-container .image-blue{
         width: 334px;
