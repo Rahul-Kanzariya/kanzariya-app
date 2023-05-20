@@ -19,3 +19,14 @@
     color: black;
     font-family: Lobster, open-sans;
   }
+
+  
+/* For Mobile Devices */
+@media only screen and (max-width: 1000px) {
+  .app-header{
+    display:flex;
+  }
+  .app-logo{
+    margin: auto;
+  }
+}

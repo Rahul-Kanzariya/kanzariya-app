@@ -23,6 +23,7 @@
 .grid-container{
     display: grid;
     grid-template-columns: auto auto auto auto;
+    border-top: 1px solid #e5e4e2;
 }
 
 .grid-item{
@@ -47,4 +48,17 @@
 .grid-item.btn-blue{
     background-color: #1034a6;
     color: white;
+}
+
+.calculator-display{
+    align-items: end;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding : 10px;
+    font-family: 'Open Sans',sans-serif;
+}
+
+.expression-display{
+    font-size: xx-large;
 }
