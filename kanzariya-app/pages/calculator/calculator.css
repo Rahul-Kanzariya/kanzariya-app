@@ -62,3 +62,12 @@
 .expression-display{
     font-size: xx-large;
 }
+
+
+
+/* For Mobile Devices */
+@media only screen and (max-width: 1000px) {
+ .calculator-body{
+    width: 100% !important;
+ }   
+}
