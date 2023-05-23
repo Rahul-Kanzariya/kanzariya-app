@@ -33,6 +33,7 @@
     height: 75px;
     font-size: 30px;
     display: flex;
+    cursor: pointer;
 }
 
 .grid-item:hover{
@@ -62,8 +63,6 @@
 .expression-display{
     font-size: xx-large;
 }
-
-
 
 /* For Mobile Devices */
 @media only screen and (max-width: 1000px) {
