@@ -2,6 +2,9 @@ import { getHtml } from "../../shared/util.js";
 
 export default class Calculator extends HTMLElement {
   template = document.createElement('template');
+  operatorList = ["+", "-", "/", "*", "%"];
+  equalClicked = false;
+
   constructor() {
     super();
     this.setHtml();
@@ -25,7 +28,6 @@ export default class Calculator extends HTMLElement {
 
   handlebuttonClick(button){
     const type = button.getAttribute('type');
-    // console.log('type: ', type);
     if(type){
       switch (type) {
         case 'number':
@@ -41,23 +43,23 @@ export default class Calculator extends HTMLElement {
           break;
       
         case 'percent':
-          this.handlePercent(button);
+          this.handlePercent("%");
           break;
       
         case 'devide':
-          this.handleDevide(button);
+          this.handleDevide("/");
           break;
       
         case 'multiple':
-          this.handleMultiple(button);
+          this.handleMultiple("*");
           break;
       
         case 'substract':
-          this.handleSubstract(button);
+          this.handleSubstract("-");
           break;
       
         case 'add':
-          this.handleAdd(button);
+          this.handleAdd("+");
           break;
       
         case 'dot':
@@ -76,7 +78,6 @@ export default class Calculator extends HTMLElement {
 
   handleNumberClick(button){
     const number = button.getAttribute('number');
-    // console.log('number: ', number);
     const displayValue = this.shadowRoot.querySelector('.expression-display').innerHTML;
     if(displayValue){
       this.shadowRoot.querySelector('.expression-display').innerHTML = displayValue + number;
@@ -103,33 +104,101 @@ export default class Calculator extends HTMLElement {
 
   handleAllClear(button){
     this.shadowRoot.querySelector('.expression-display').innerHTML = "";
+    this.shadowRoot.querySelector('.exp-result-display').innerHTML = "";
+    this.equalClicked = false;
+    this.toggleDisplays();
   }
 
   handleClear(button){
     const displayValue = this.shadowRoot.querySelector('.expression-display').innerHTML
+    if(this.equalClicked){
+      this.toggleDisplays();
+      this.equalClicked = false;
+    }
+
     if(displayValue && displayValue.length > 0){
       this.shadowRoot.querySelector('.expression-display').innerHTML = displayValue.slice(0, -1);
+      this.handleExpressResult(displayValue.slice(0, -1))
     }
   }
 
-  handleAdd(button){
+  handleAdd(sign){
     const displayValue = this.shadowRoot.querySelector('.expression-display').innerHTML
-    if(displayValue && displayValue.length > 0){
-      this.shadowRoot.querySelector('.expression-display').innerHTML = displayValue + '+';
+    const isAlreadyOp = this.isMultiOPClick(displayValue)
+    if(this.equalClicked){
+      this.handleOpAfterEqualClicked(sign);
+      return;
+    }
+    if(!isAlreadyOp && displayValue && displayValue.length > 0){
+      this.shadowRoot.querySelector('.expression-display').innerHTML = displayValue + sign;
+    }
+  }
+
+  handleSubstract(sign){
+    const displayValue = this.shadowRoot.querySelector('.expression-display').innerHTML
+    const isAlreadyOp = this.isMultiOPClick(displayValue)
+    if(this.equalClicked){
+      this.handleOpAfterEqualClicked(sign);
+      return;
+    }
+    if(!isAlreadyOp && displayValue && displayValue.length > 0){
+      this.shadowRoot.querySelector('.expression-display').innerHTML = displayValue + sign;
+    }
+  }
+
+  handleMultiple(sign){
+    const displayValue = this.shadowRoot.querySelector('.expression-display').innerHTML
+    const isAlreadyOp = this.isMultiOPClick(displayValue)
+    if(this.equalClicked){
+      this.handleOpAfterEqualClicked(sign);
+      return;
+    }
+    if(!isAlreadyOp && displayValue && displayValue.length > 0){
+      this.shadowRoot.querySelector('.expression-display').innerHTML = displayValue + sign;
+    }
+  }
+
+  handleDevide(sign){
+    const displayValue = this.shadowRoot.querySelector('.expression-display').innerHTML
+    const isAlreadyOp = this.isMultiOPClick(displayValue)
+    if(this.equalClicked){
+      this.handleOpAfterEqualClicked(sign);
+      return;
+    }
+    if(!isAlreadyOp && displayValue && displayValue.length > 0){
+      this.shadowRoot.querySelector('.expression-display').innerHTML = displayValue + sign;
+    }
+  }
+
+  handlePercent(sign){
+    const displayValue = this.shadowRoot.querySelector('.expression-display').innerHTML
+    const isAlreadyOp = this.isMultiOPClick(displayValue)
+    if(this.equalClicked){
+      this.handleOpAfterEqualClicked(sign);
+      return;
+    }
+    if(!isAlreadyOp && displayValue && displayValue.length > 0){
+      this.shadowRoot.querySelector('.expression-display').innerHTML = displayValue + sign;
     }
   }
 
   handleEqual(button){
     const displayValue = this.shadowRoot.querySelector('.expression-display').innerHTML
-    if(displayValue && displayValue.length > 0){
-      this.shadowRoot.querySelector('.expression-display').innerHTML = displayValue + '+';
+    const resultDisplayValue = this.shadowRoot.querySelector('.exp-result-display').innerHTML
+    if(displayValue && resultDisplayValue && !this.equalClicked){
+      this.toggleDisplays();
+      this.equalClicked = true;
     }
   }
 
   handleExpressResult(displayValue){
-    const operatorList = ["+", "-", "/", "*", "%"];
+    if(!displayValue)return this.handleAllClear(displayValue);
+    if(displayValue && this.operatorList.includes(displayValue.slice(-1))){
+      this.shadowRoot.querySelector('.exp-result-display').innerHTML = "";
+      return
+    }
     let isMathOperatorIncludes = false;
-    operatorList.forEach((op) => {
+    this.operatorList.forEach((op) => {
         if (displayValue.includes(op)) {
           isMathOperatorIncludes = true;
         }
@@ -141,8 +210,26 @@ export default class Calculator extends HTMLElement {
     }
   }
 
+  handleOpAfterEqualClicked(sign){
+      const displayValue = this.shadowRoot.querySelector('.expression-display').innerHTML
+      const resultDisplayValue = this.shadowRoot.querySelector('.exp-result-display').innerHTML
+      this.toggleDisplays(); 
+      this.shadowRoot.querySelector('.exp-result-display').innerHTML = '';
+      this.shadowRoot.querySelector('.expression-display').innerHTML = resultDisplayValue + sign;
+      this.equalClicked = false;
+  }
+
   connectedCallback() {
     this.h3 = this.getAttribute("name");
+  }
+
+  isMultiOPClick(displayValue){
+    return displayValue && this.operatorList.includes(displayValue.slice(-1))
+  }
+
+  toggleDisplays(){
+    this.shadowRoot.querySelector('.expression-display').classList.toggle('big-Display');
+    this.shadowRoot.querySelector('.exp-result-display').classList.toggle('big-Display');
   }
 }
 
