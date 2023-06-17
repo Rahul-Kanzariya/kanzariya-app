@@ -39,9 +39,3 @@ export default class AppMenu extends HTMLElement {
       if(clickedMenu)clickedMenu.classList.add("show");
     }
   }
-
-  // Register component to window
-window.customElements.define('app-menu', AppMenu);
-
-
-  // console.log("in >>> app.js");

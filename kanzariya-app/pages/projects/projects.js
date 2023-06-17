@@ -27,6 +27,3 @@ export default class Projects extends HTMLElement {
       // this.querySelector('h3').innerText = this.getAttribute('name');
     }
   }
-
-  // Register component to window
-window.customElements.define('my-projects', Projects);

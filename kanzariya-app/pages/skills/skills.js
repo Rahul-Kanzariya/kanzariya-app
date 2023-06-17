@@ -27,6 +27,3 @@ export default class Skills extends HTMLElement {
       // this.querySelector('h3').innerText = this.getAttribute('name');
     }
   }
-
-  // Register component to window
-window.customElements.define('my-skills', Skills);

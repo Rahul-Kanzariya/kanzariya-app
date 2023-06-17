@@ -27,6 +27,3 @@ export default class AboutMe extends HTMLElement {
       // this.querySelector('h3').innerText = this.getAttribute('name');
     }
   }
-
-  // Register component to window
-window.customElements.define('about-me', AboutMe);

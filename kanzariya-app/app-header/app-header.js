@@ -19,9 +19,3 @@ export default class AppHeader extends HTMLElement {
       this.innerHTML = template;
     }  
   }
-
-  // Register component to window
-window.customElements.define('app-header', AppHeader);
-
-
-  // console.log("in >>> app.js");

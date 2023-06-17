@@ -232,6 +232,3 @@ export default class Calculator extends HTMLElement {
     this.shadowRoot.querySelector('.exp-result-display').classList.toggle('big-Display');
   }
 }
-
-// Register component to window
-window.customElements.define('app-calculator', Calculator);
